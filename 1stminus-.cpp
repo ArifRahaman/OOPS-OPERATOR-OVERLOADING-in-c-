@@ -8,10 +8,8 @@ private:
     int b;
 
 public:
-    Sub(int a = 0)
-    {
-        this->a = a;
-    }
+    Sub(int a = 0): a(a){}
+    
     void print()
     {
         cout << "Value of a is: " << a;
