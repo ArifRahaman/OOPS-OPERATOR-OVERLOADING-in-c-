@@ -10,15 +10,13 @@ class Sum1
 
 public:
    
-    Sum1(int b = 0)
-    {
-        this->b = b;
-    }
+    Sum1(int b = 0): b(b){}
+    
     void show()
     {
         cout << "The value of b is: " << b << endl;
     }
-    // Declare the friend function
+
   friend Sum1 operator+(const Sum1 &obj1,const Sum1 &obj2);
 };
 
