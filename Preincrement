@@ -15,9 +15,8 @@ public:
 
     Postincrement operator++()
     {
-        Postincrement tmp(a); // Creating a temporary object with the original value
-        ++a;                  // Incrementing the current object's value
-        return tmp;           // Returning the temporary object (pre-incremented value)
+        a=a+1;
+        return Postincrement(a);
     }
 };
 
@@ -26,6 +25,7 @@ int main()
     Postincrement A(8);
     Postincrement B;
     B = ++A; // Using the post-increment operator
+    B.show();
     A.show();
 
     return 0;
