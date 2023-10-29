@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+class A
+{
+    int a;
+
+public:
+    A(int a = 0) : a(a) {}
+    void show(){
+        cout<<"The answer is: "<<a;
+    }
+
+    A *operator->()
+    {
+        return this; // Return a pointer to the member 'a'
+    }
+};
+
+int main()
+{
+    A a(7);
+    a->show();
+    return 0;
+}
