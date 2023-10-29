@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+class Postincrement
+{
+    int a;
+
+public:
+    Postincrement(int a = 0) : a(a) {}
+
+    void show()
+    {
+        cout << "The incremented answer is: " << a << endl;
+    }
+
+    Postincrement operator++()
+    {
+        Postincrement tmp(a); // Creating a temporary object with the original value
+        ++a;                  // Incrementing the current object's value
+        return tmp;           // Returning the temporary object (pre-incremented value)
+    }
+};
+
+int main()
+{
+    Postincrement A(8);
+    Postincrement B;
+    B = ++A; // Using the post-increment operator
+    A.show();
+
+    return 0;
+}
