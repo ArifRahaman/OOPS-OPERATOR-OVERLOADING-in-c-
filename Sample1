@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class Sample
+{
+private:
+    int a;
+
+public:
+    Sample(int a = 0) : a(a) {}
+
+    void display()
+    {
+        cout << "The answer is: " << a;
+    }
+
+    Sample operator*(int value)
+    {
+        Sample temp;
+        temp.a = a * value;
+        return temp;
+    }
+
+    operator int()
+    {
+        return a;
+    }
+
+    friend ostream &operator<<(ostream &out, const Sample &s)
+    {
+        out << "The answer is: " << s.a;
+        return out;
+    }
+};
+
+int main()
+{
+    Sample s1(9), s2;
+    s2 = s1 * 10;
+    s2 = s2 + 5;
+    cout << s2; // This will use the overloaded << operator
+    return 0;
+}
