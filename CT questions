@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+class Sample
+{
+private:
+    int s;
+
+public:
+    Sample(int val = 0) : s(val) {}
+
+    void show()
+    {
+        cout << "The answer is: " << s << endl;
+    }
+
+    Sample &operator+=(const Sample &B)
+    {
+        s += B.s;     // Accumulate the value of B.s to the current object's s
+        return *this; // Return a reference to the current object
+    }
+    Sample operator++(int){
+        Sample temp;
+        temp.s=s++;
+        return temp;
+
+    }
+    operator int(){
+        return s;
+    }
+    Sample operator++()
+    {
+        Sample temp;
+        temp.s = s+1;
+        return temp;
+    }
+
+    friend ostream &operator<<(ostream &os, const Sample &obj)
+    {
+        os << "The answer is: " << obj.s;
+        return os;
+    }
+};
+
+int main()
+{
+    Sample ob1(3);
+    Sample ob2(4);
+    Sample ob3;
+
+    ob3 = ob1 += ob2; // This adds ob2 to ob1 and assigns the result to ob3
+    // ++ob3;            // This increments the value of ob3 by 1
+
+    ob3++.show(); // Display the modified value of ob3
+    ob2=10+(++ob1);
+    cout<<ob1<<ob2<<endl;
+    // ob2.show();
+
+
+    return 0;
+}
